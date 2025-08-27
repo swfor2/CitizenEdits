@@ -75,7 +75,7 @@
 	/* Add border separator between caption, tr, thead, tbody, tfoot */
 	> :where( caption, tr, thead, tbody, tfoot ):not( [ hidden ] ) ~ :where( caption, tr, thead, tbody, tfoot ):not( [ hidden ] ),
 	> :where( thead, tbody, tfoot ) > :where( tr, thead, tbody, tfoot ):not( [ hidden ] ) ~ :where( tr, thead, tbody, tfoot ):not( [ hidden ] ) {
-		border-top: var( --border-width-base ) solid var( --border-color-table, var( --border-color-base ) );
+		border-top-width: var( --border-width-base ); border-style: solid; border-color: inherit;
 	}
 
 	/* Reset border radius between thead tbody, tbody tfoot, etc. */
@@ -112,8 +112,8 @@
 	&--border {
 		tr {
 			> :is( th, td ):not( [ hidden ] ) {
-				border-right: var( --border-width-base ) solid var( --border-color-table, var( --border-color-base ) );
-				border-left: var( --border-width-base ) solid var( --border-color-table, var( --border-color-base ) );
+				border-right-width: var( --border-width-base ); border-style: solid;
+				border-left-width: var( --border-width-base ); border-style: solid; border-color: inherit;
 
 				&:first-child {
 					border-left: 0;
