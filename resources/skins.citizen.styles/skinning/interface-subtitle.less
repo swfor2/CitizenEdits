@@ -12,29 +12,35 @@
 #contentSub2 {
 	overflow: hidden;
 	text-overflow: ellipsis;
-	color: var( --color-subtle );
-	.mixin-citizen-font-styles( 'small' );
+	/* uncomment if you want single-line truncation to actually show the ellipsis */
+	/* white-space: nowrap; */
+	color: var(--color-subtitle, var(--color-subtle));
+	.mixin-citizen-font-styles('small');
 }
 
 #siteSub {
-	// Reduced line height for siteSub
-	line-height: var( --line-height-x-small );
+	/* Reduced line height for siteSub */
+	line-height: var(--line-height-x-small);
 }
 
-// Reduced spacing if both sub1 and 2 exists
+/* Reduced spacing if both sub1 and 2 exist */
 #contentSub + #contentSub2 {
-	margin-top: ~'calc( var( --space-xs ) * -1 )';
+	margin-top: calc(var(--space-xs) * -1);
 }
 
 #citizen-tagline-user > span + span::before {
-	margin: 0 var( --space-xxs );
+	margin: 0 var(--space-xxs);
 	content: '·';
+}
 
-	@supports ( user-select: none ) {
+/* Place @supports at-rules at the top level (valid CSS) */
+@supports (user-select: none) {
+	#citizen-tagline-user > span + span::before {
 		user-select: none;
 	}
-
-	@supports ( -webkit-user-select: none ) {
+}
+@supports (-webkit-user-select: none) {
+	#citizen-tagline-user > span + span::before {
 		-webkit-user-select: none;
 	}
 }
