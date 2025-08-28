@@ -8,37 +8,54 @@
  */
 
 .mw-message-box {
-	padding: var( --space-sm ) var( --space-md );
+	padding-block: var(--space-sm);
+	padding-inline: var(--space-md);
 	overflow: hidden;
-	color: var( --color-emphasized );
+	text-wrap: pretty;
+	color: var(--color-base, var(--mbox-text-color));
 	overflow-wrap: break-word;
-	background-color: var( --color-surface-2 );
-	border: var( --border-width-base ) solid var( --border-color-base );
-	border-radius: var( --border-radius-base );
+	background-color: var(--color-surface-2, var(--mbox-background-color-base));
+	border: var(--border-width-base) solid var(--mbox-border-color-base, var(--border-color-base));
+	border-radius: var(--border-radius-medium);
 
-	/* Ensure box inner spacing is not all over the place no matter what element is only child. */
-	> :only-child {
-		margin: 0;
+	&:first-child {
+		margin-block: 1em;
+	}
+	&:not(:first-child) {
+		margin-block-end: 1em;
+	}
+	&:last-child {
+		margin-block-end: 1em;
 	}
 
-	// Formerly provided by mw-warning-with-logexcerpt, now available for all messageboxes.
+	/* Ensure box inner spacing is consistent when only one child element is present */
+	> :only-child {
+		margin-block: 1em;
+		margin-inline: 0;
+	}
+
+	// Formerly provided by mw-warning-with-logexcerpt, now available for all message boxes
 	.mw-logevent-loglines li {
 		font-size: 90%;
 	}
 
 	&-error {
-		background-color: var( --background-color-destructive-subtle );
+		background-color: var(--mbox-background-color-error, var(--background-color-destructive-subtle));
+		border-color: var(--mbox-border-color-error, var(--border-color-base));
 	}
 
 	&-warning {
-		background-color: var( --background-color-warning-subtle );
+		background-color: var(--mbox-background-color-warning, var(--background-color-warning-subtle));
+		border-color: var(--mbox-border-color-warning, var(--border-color-base));
 	}
 
 	&-success {
-		background-color: var( --background-color-success-subtle );
+		background-color: var(--mbox-background-color-success, var(--background-color-success-subtle));
+		border-color: var(--mbox-border-color-success, var(--border-color-base));
 	}
 }
 
+/* 
 #siteNotice {
 	.mw-message-box {
 		border: 0;
@@ -46,3 +63,4 @@
 		border-radius: 0;
 	}
 }
+*/
