@@ -1,152 +1,165 @@
-/**
- * Citizen tokens
- * CSS variables that are used throughout the skin
- *
- * TODO: Remove HSL fallback when OKLCH is supported in all browsers
- * TODO: Use CSS relative color syntax when supported in all browsers
- */
 @import 'tokens-theme-base.less';
 
 :root {
-	.theme-base();
+  .theme-base();
 
-	/* Border */
-	--border-radius-medium: calc( var( --border-radius-base ) * 2 );
-	--border-radius-large: calc( var( --border-radius-base ) * 3 );
+  /* Box shadow */
+  --box-shadow-border: var(--border-color-base) 0 0 0 1px;
 
-	/* Box shadow */
-	--box-shadow-border: var( --border-color-base ) 0 0 0 1px;
+  /* Filter */
+  --filter-invert-fixed: invert(1) hue-rotate(180deg);
 
-	/* Filter */
-	--filter-invert-fixed: invert( 1 ) hue-rotate( 180deg );
+  /* Font families */
+  --font-family-citizen-base: var(--font-family-inter), 'Roboto', 'Roboto-fallback';
+  --font-family-citizen-serif: var(--font-family-arvo), 'Roboto Serif', 'Roboto Serif-fallback';
+  --font-family-citizen-monospace: var(--font-family-cousine), 'Roboto Mono', 'Roboto Mono-fallback';
+  --font-family-language-base: '';
+  --font-family-language-serif: '';
+  --font-family-language-monospace: '';
 
-	/* Font */
-	--font-family-citizen-base: 'Roboto', 'Roboto-fallback';
-	--font-family-citizen-serif: 'Roboto Serif', 'Roboto Serif-fallback';
-	--font-family-citizen-monospace: 'Roboto Mono', 'Roboto Mono-fallback';
-	--font-family-language-base: '';
-	--font-family-language-serif: '';
-	--font-family-language-monospace: '';
+  /* Sizes */
+  --size-icon: @size-icon;
 
-	/* Size */
-	/* TODO: Need to standardize the naming convention */
-	/* TODO: Perhaps move some of these into a scoped element? */
-	--size-icon: @size-icon;
-	// Height of the bottom toolbar used by page tools and ToC toggle
-	--toolbar-size: 2.5rem;
-	// Used to offset sticky elements with sticky header
-	// This is overriden by inline styles in the html element when sticky header is active
-	// Need the unit for calc() (#1058)
-	// stylelint-disable-next-line length-zero-no-unit
-	--height-sticky-header: 0px;
-	// Width or height of citizen-header, depending on the orientation
-	--header-size: @header-size;
-	// Max-height allowed for header card, 20vh is left for closing affordnance
-	--header-card-maxheight: 80vh;
-	// Width of the gradient in citizen-overflow
-	--overflow-gradient-size: 2rem;
-	// Width of the body content
-	--width-layout: @width-layout;
-	// Width of the body content when the page should be extended (e.g. special, category pages)
-	--width-layout--extended: calc( var( --width-layout ) * 1.5 );
-	// Width of the table of contents
-	--width-toc: @width-toc;
-	/// Width of the page
-	--width-page: @width-layout;
-	// Side padding used for the page
-	// This is set in px to enforce safe area on a page
-	--padding-page: @padding-page;
+  /* Toolbar & sticky */
+  --toolbar-size: 2.5rem;
+  --height-sticky-header: 0px; /* unit needed for calc() */
 
-	/* Spacing */
-	--space-unit: @space-unit;
-	--space-xxs: calc( 0.25 * var( --space-unit ) );
-	--space-xs: calc( 0.5 * var( --space-unit ) );
-	--space-sm: calc( 0.75 * var( --space-unit ) );
-	--space-md: var( --space-unit );
-	--space-lg: calc( 1.25 * var( --space-unit ) );
-	--space-xl: calc( 1.5 * var( --space-unit ) );
-	--space-xxl: calc( 2 * var( --space-unit ) );
+  /* Header sizing */
+  --header-size: @header-size;
+  --header-card-maxheight: 80vh; /* 20vh left for close affordance */
 
-	/* Transition */
-	--transition-delay-menu: 100ms;
-	/* @see https://www.joshwcomeau.com/animation/css-transitions/#custom-curves-7 */
-	--transition-timing-function-ease: cubic-bezier( 0.44, 0.21, 0, 1 );
-	--transition-timing-function-ease-in: cubic-bezier( 0.75, 0, 1, 1 );
-	--transition-timing-function-ease-out: cubic-bezier( 0.215, 0.61, 0.355, 1 );
+  /* Overflow gradient */
+  --overflow-gradient-size: 2rem;
 
-	/* Transform */
-	/**
-	* Add affordance to thumbnails to replace magnify icon
-	* On hover, enlarge the image to inform the user that a full-size image will be shown (to MMV or file page)
-	*/
-	--transform-image-hover: scale( 1.1 );
+  /* Layout widths */
+  --width-layout: @width-layout;
+  --width-layout--extended: calc(var(--width-layout) * 1.5);
+  --width-toc: @width-toc;
+  --width-page: @width-layout;
 
-	/**
-	 * Codex Design Tokens but not included as CSS variables
-	 */
-	--border-base: var( --border-width-base ) solid var( --border-color-base );
-	--border-subtle: var( --border-width-base ) solid var( --border-color-subtle );
-	--border-width-base: 1px;
-	--border-width-thick: 2px;
-	--border-radius-base: 4px;
-	--border-radius-sharp: 0;
-	--border-radius-pill: 9999px;
-	--border-radius-circle: 50%;
-	--box-shadow-small: 0 0 0 1px var( --border-color-base );
-	// @see https://www.joshwcomeau.com/shadow-palette
-	--box-shadow-medium: 0 0.5px 0.6px var( --box-shadow-color-alpha-base ), 0 1.6px 1.8px -0.8px var( --box-shadow-color-alpha-base ), 0 4px 4.5px -1.7px var( --box-shadow-color-alpha-base ), 0 9.8px 11px -2.5px var( --box-shadow-color-alpha-base );
-	--box-shadow-large: 0 0.5px 0.6px var( --box-shadow-color-alpha-base ), 0 2.8px 3.1px -0.4px var( --box-shadow-color-alpha-base ), 0 5.3px 6px -0.7px var( --box-shadow-color-alpha-base ), 0 8.7px 9.8px -1.1px var( --box-shadow-color-alpha-base ), 0 13.9px 15.6px -1.4px var( --box-shadow-color-alpha-base ), 0 21.8px 24.5px -1.8px var( --box-shadow-color-alpha-base );
-	--font-family-base: @font-family-base;
-	--font-family-serif: @font-family-serif;
-	--font-family-monospace: @font-family-monospace;
-	--font-weight-normal: 400;
-	--font-weight-medium: calc( var( --font-weight-normal ) + 100 );
-	--font-weight-semi-bold: calc( var( --font-weight-normal ) + 200 );
-	--font-weight-bold: calc( var( --font-weight-normal ) + 300 );
-	--font-family-overline: var( --font-family-base );
-	--font-weight-overline: var( --font-weight-medium );
-	--font-size-overline: var( --font-size-small );
-	--line-height-overline: var( --line-height-small );
-	--text-transform-overline: none;
-	--letter-spacing-overline: normal;
+  /* Page padding (px for safe area) */
+  --padding-page: @padding-page;
 
-	@media ( min-width: @min-width-breakpoint-tablet ) {
-		--padding-page: calc( @padding-page * 1.5 );
-	}
+  /* Spacing scale */
+  --space-unit: @space-unit;
+  --space-xxxs: calc(0.125 * var(--space-unit));
+  --space-xxs:  calc(0.25  * var(--space-unit));
+  --space-xs:   calc(0.5   * var(--space-unit));
+  --space-sm:   calc(0.75  * var(--space-unit));
+  --space-md:   var(--space-unit);
+  --space-lg:   calc(1.25  * var(--space-unit));
+  --space-xl:   calc(1.5   * var(--space-unit));
+  --space-xxl:  calc(1.75  * var(--space-unit)); /* confirm consumers expect 1.75× */
+  --space-xxxl: calc(2     * var(--space-unit));
 
-	@media ( min-width: @min-width-breakpoint-desktop ) {
-		--padding-page: calc( @padding-page * 2 );
-		--header-card-maxheight: calc( 100vh - var( --space-sm ) * 2 );
-	}
+  /* Transition */
+  --transition-delay-menu: 100ms;
+  --transition-timing-function-ease:    cubic-bezier(0.44, 0.21, 0, 1);
+  --transition-timing-function-ease-in: cubic-bezier(0.75, 0, 1, 1);
+  --transition-timing-function-ease-out:cubic-bezier(0.215, 0.61, 0.355, 1);
 
-	@media ( prefers-contrast: more ) {
-		--font-weight-normal: 500;
-	}
+  /* Transform */
+  --transform-image-hover: scale(1); /* removes the hover effect */
 
-	@media ( prefers-contrast: less ) {
-		--font-weight-normal: 300;
-	}
+  /* Borders */
+  --border-width-base: .0625rem; /* 1px */
+  --border-width-thin: var(--border-width-base);
+  --border-width-thick:   calc(var(--border-width-base) * 2);
+  --border-width-thicker: calc(var(--border-width-base) * 3);
+  --border-width-thickest:calc(var(--border-width-base) * 4);
 
-	/**
-	 * Deprecated tokens
-	 */
-	--color-primary__h: var( --color-progressive-hsl__h );
-	--color-primary__s: var( --color-progressive-hsl__s );
-	--color-primary__l: var( --color-progressive-hsl__l );
-	--font-size-base: var( --font-size-medium );
-	--line-height: 1.6;
-	--line-height-xxx-small: 1.25; // Deprecated with Codex 2.0
-	--line-height-xx-small: 1.375; // Deprecated with Codex 2.0
-	--box-shadow-drop-small: var( --box-shadow-small );
-	--box-shadow-drop-medium: var( --box-shadow-medium );
-	--box-shadow-drop-xx-large: var( --box-shadow-large );
+  --border-base:   var(--border-width-base) solid var(--border-color-base);
+  --border-subtle: var(--border-width-base) solid var(--border-color-subtle);
+
+  /* Border radius */
+  --border-radius-base: var(--space-xxs);
+  --border-radius-small:    calc(var(--border-radius-base) * 1);
+  --border-radius-medium:   calc(var(--border-radius-base) * 2);
+  --border-radius-large:    calc(var(--border-radius-base) * 3);
+  --border-radius-x-large:  calc(var(--border-radius-base) * 4);
+  --border-radius-xx-large: calc(var(--border-radius-base) * 5);
+  --border-radius-xxx-large:calc(var(--border-radius-base) * 6);
+  --border-radius-xxxx-large: calc(var(--border-radius-base) * 7);
+  --border-radius-xxxxx-large:calc(var(--border-radius-base) * 8);
+  --border-radius-sharp: 0;
+  --border-radius-pill: 9999px;
+  --border-radius-circle: 50%;
+
+  /* Optional short aliases */
+  --border-radius-xs: var(--border-radius-small);
+  --border-radius-sm: var(--border-radius-medium);
+  --border-radius-md: var(--border-radius-large);
+  --border-radius-xl: var(--border-radius-x-large);
+  --border-radius-2xl:var(--border-radius-xx-large);
+
+  /* Box shadows */
+  --box-shadow-small: 0 0 0 1px var(--border-color-base);
+  --box-shadow-medium:
+    0 0.5px 0.6px var(--box-shadow-color-alpha-base),
+    0 1.6px 1.8px -0.8px var(--box-shadow-color-alpha-base),
+    0 4px 4.5px -1.7px var(--box-shadow-color-alpha-base),
+    0 9.8px 11px -2.5px var(--box-shadow-color-alpha-base);
+  --box-shadow-large:
+    0 0.5px 0.6px var(--box-shadow-color-alpha-base),
+    0 2.8px 3.1px -0.4px var(--box-shadow-color-alpha-base),
+    0 5.3px 6px -0.7px var(--box-shadow-color-alpha-base),
+    0 8.7px 9.8px -1.1px var(--box-shadow-color-alpha-base),
+    0 13.9px 15.6px -1.4px var(--box-shadow-color-alpha-base),
+    0 21.8px 24.5px -1.8px var(--box-shadow-color-alpha-base);
+
+  /* Codex families (LESS -> CSS var bridge) */
+  --font-family-base: @font-family-base;
+  --font-family-serif: @font-family-serif;
+  --font-family-monospace: @font-family-monospace;
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-hairline: calc(var(--font-weight-normal) - 300);
+  --font-weight-thin:     calc(var(--font-weight-normal) - 200);
+  --font-weight-light:    calc(var(--font-weight-normal) - 100);
+  --font-weight-medium:   calc(var(--font-weight-normal) + 100);
+  --font-weight-semi-bold:calc(var(--font-weight-normal) + 200);
+  --font-weight-bold:     calc(var(--font-weight-normal) + 300);
+  --font-weight-heavy:    calc(var(--font-weight-normal) + 400);
+  /* clamp to ≤ 900 */
+  --font-weight-black:    min(900, calc(var(--font-weight-normal) + 500));
+
+  /* Overline */
+  --font-family-overline: var(--font-family-base);
+  --font-weight-overline: var(--font-weight-medium);
+  --font-size-overline:   var(--font-size-small);
+  --line-height-overline: var(--line-height-small);
+  --text-transform-overline: none;
+  --letter-spacing-overline: normal;
+
+  /* Media queries */
+  @media (min-width: @min-width-breakpoint-tablet) {
+    --padding-page: calc(@padding-page * 1.5);
+  }
+  @media (min-width: @min-width-breakpoint-desktop) {
+    --padding-page: calc(@padding-page * 2);
+    --header-card-maxheight: calc(100vh - var(--space-sm) * 2);
+  }
+  @media (prefers-contrast: more) {  --font-weight-normal: 500; }
+  @media (prefers-contrast: less) {  --font-weight-normal: 300; }
+
+  /* Deprecated tokens */
+  --color-primary__h: var(--color-progressive-hsl__h);
+  --color-primary__s: var(--color-progressive-hsl__s);
+  --color-primary__l: var(--color-progressive-hsl__l);
+  --font-size-base: var(--font-size-medium);
+  --line-height: 1.618;
+  --line-height-xxx-small: 1.250;
+  --line-height-xx-small: 1.375;
+  --box-shadow-drop-small: var(--box-shadow-small);
+  --box-shadow-drop-medium: var(--box-shadow-medium);
+  --box-shadow-drop-xx-large: var(--box-shadow-large);
 }
 
-// TODO: Update with implementation on T376559 when it is finalized
+/* TODO: Update with implementation on T376559 */
 .citizen-animations-ready {
-	/* Only apply transition when page is ready for it */
-	--transition-hover: @transition-hover;
-	--transition-menu: @transition-menu;
-	--transition-duration-base: 100ms;
-	--transition-duration-medium: 250ms;
+  --transition-hover: @transition-hover;
+  --transition-menu:  @transition-menu;
+  --transition-duration-base: 100ms;
+  --transition-duration-medium: 250ms;
 }
