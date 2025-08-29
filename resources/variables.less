@@ -1,25 +1,25 @@
 /*
  * Citizen
  *
- * All LESS variables used in the skin must be defined here
- * Use CSS variables from tokens.less is preferrable
- * Only import this stylesheet when LESS variables is nessecary
+ * All LESS variables used in the skin must be defined here.
+ * Prefer CSS variables from tokens.less where possible.
+ * Only import this stylesheet when LESS variables are necessary.
  *
  * Related files:
  * - Citizen tokens: skins.citizen.styles/tokens.less
  * - Override MW skin default variables: mediawiki.less/mediawiki.skin.variables.less
- *
-*/
+ */
 
-/* Imports */
+/* == Imports == */
+
 /*
  * MediaWiki mixins
  * @see https://github.com/wikimedia/mediawiki/blob/master/resources/src/mediawiki.less/mediawiki.mixins.less
  */
 @import 'mediawiki.mixins';
+
 /*
  * MediaWiki skin variables
- * mediawiki.less/mediawiki.skin.variables.less
  * @see https://github.com/wikimedia/mediawiki/blob/master/resources/src/mediawiki.less/mediawiki.skin.defaults.less
  */
 @import 'mediawiki.skin.variables.less';
@@ -29,16 +29,13 @@
 
 /* == Fonts == */
 /*
- * --font-family-citizen-base-xx are default fonts prioritized by Citizen.
- * --font-family-language-xx are language-specific fonts from language RL module.
- * It is empty by default but populated by Citizen language modules such as the CJK one.
+ * --font-family-citizen-base-* are default fonts prioritized by Citizen.
+ * --font-family-language-* are language-specific fonts from the language RL module.
+ * They are empty by default but populated by Citizen language modules such as the CJK one.
  */
-// Citizen sans-serif fonts
-@font-family-base: var( --font-family-citizen-base ), var( --font-family-language-base ), system-ui, -apple-system, sans-serif;
-// Citizen serif fonts
-@font-family-serif: var( --font-family-citizen-serif ), var( --font-family-language-serif ), 'Linux Libertine', 'Georgia', 'Times', 'Source Serif Pro', serif;
-// Citizen monospace fonts
-@font-family-monospace: var( --font-family-citizen-monospace ), var( --font-family-language-monospace ), 'Menlo', 'Consolas', 'Liberation Mono', 'Fira Code', 'Courier New', monospace;
+@font-family-base: var(--font-family-citizen-base), var(--font-family-language-base), system-ui, -apple-system, sans-serif;
+@font-family-serif: var(--font-family-citizen-serif), var(--font-family-language-serif), 'Linux Libertine', 'Georgia', 'Times', 'Source Serif Pro', serif;
+@font-family-monospace: var(--font-family-citizen-monospace), var(--font-family-language-monospace), 'Menlo', 'Consolas', 'Liberation Mono', 'Fira Code', 'Courier New', monospace;
 
 /* == Colors == */
 
@@ -46,25 +43,25 @@
  * Syntax highlight colors
  * Based on Material Theme Lighter
  * https://material-theme.site
-*/
-@color-syntax-red: #e53935;
-@color-syntax-orange: #f76d47;
-@color-syntax-yellow: #e2931d;
-@color-syntax-green: #91b859;
-@color-syntax-cyan: #39adb5;
-@color-syntax-blue: #6182b8;
-@color-syntax-paleblue: #8796b0;
-@color-syntax-purple: #9c3eda;
-@color-syntax-brown: #916b53;
-@color-syntax-pink: #ff5370;
-@color-syntax-violet: #945eb8;
-@color-syntax-grey: #90a4ae;
+ */
+@color-syntax-red: oklch(0.396 0.141 25.723);
+@color-syntax-orange: oklch(0.646 0.222 41.116);
+@color-syntax-yellow: oklch(0.769 0.188 70.08);
+@color-syntax-green: oklch(0.532 0.157 131.589);
+@color-syntax-cyan: oklch(0.609 0.126 221.723);
+@color-syntax-blue: oklch(0.3166 0.1496 262.5219);
+@color-syntax-paleblue: oklch(0.685 0.169 237.323);
+@color-syntax-purple: oklch(0.381 0.176 304.987);
+@color-syntax-brown: oklch(0.268 0.007 34.298);
+@color-syntax-pink: oklch(0.712 0.194 13.428);
+@color-syntax-violet: oklch(0.5495 0.1615 297.66);
+@color-syntax-grey: oklch(0.442 0.017 285.786);
 
 /*
  * Syntax highlight colors
  * Based on Material Theme Palenight
  * https://material-theme.site
-*/
+ */
 @color-syntax-red-dark: oklch(0.6484 0.2098 25.22);
 @color-syntax-orange-dark: oklch(0.7273 0.0949 63.82);
 @color-syntax-yellow-dark: oklch(0.8249 0.097 82.26);
@@ -79,33 +76,28 @@
 @color-syntax-grey-dark: oklch(0.7621 0.0202 262.99);
 
 /* == Box model properties == */
-/* `--*size` variables are used for `*width` & `*height` properties. */
-@size-icon:		1.25rem;
-// Not in the header section it is also used outside of header
-@header-size:	3.5rem;
-// 67.5rem at 16px font size
-// We use px because it would be frustrating if max-width changes with font size
-@width-layout:	1080px;
-// TODO: Revise this number, fixed value isn't great but we need it for b
-@width-toc: 240px;
+/* `--*size` variables are used for width & height properties. */
+@size-icon: 1.25rem;
+@header-size: 3.5rem; // Used outside header too
+@width-layout: 1080px; // 67.5rem at 16px; fixed px to avoid shifting with font size
+@width-toc: 240px; // TODO: Revise; fixed value not ideal
 
 /* Paddings */
-@padding-page:	16px;
+@padding-page: 16px;
 
 /* Transitions */
-@transition-hover: var( --transition-duration-base ) var( --transition-timing-function-ease );
-@transition-menu: var( --transition-duration-medium ) var( --transition-timing-function-ease-out );
+@transition-hover: var(--transition-duration-base) var(--transition-timing-function-ease);
+@transition-menu: var(--transition-duration-medium) var(--transition-timing-function-ease-out);
 
 /*
  * Legacy colors
- *
- * They are used by the SMW skinstyles and a few MW UI stuff.
- * Those styles should be updated to the new standard.
- * After that we can remove all theses LESS variables.
-*/
-@dark-bg-10: #1d2129;
-@dark-bg-20: #22262d;
-@dark-bg-30: #24272f;
-@dark-bg-40: #2b2f36;
-@dark-bg-50: #33363d;
-@dark-bg-60: #34383f;
+ * Used by SMW skinstyles and some MW UI elements.
+ * These should be migrated to the new standard.
+ * Once replaced, remove these LESS variables.
+ */
+@dark-bg-10: oklch(0.2472 0.0164 264.21);
+@dark-bg-20: oklch(0.2676 0.0143 261.68);
+@dark-bg-30: oklch(0.2731 0.0155 269.11);
+@dark-bg-40: oklch(0.3041 0.0138 261.71);
+@dark-bg-50: oklch(0.3327 0.013 267.15);
+@dark-bg-60: oklch(0.3396 0.0134 261.73);
