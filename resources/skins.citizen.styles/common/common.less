@@ -19,7 +19,7 @@ body {
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	box-sizing: border-base;
 	border-color: var( --border-color-base );
 	border-style: solid;
 	border-width: 0;
@@ -43,7 +43,7 @@ body {
 input,
 select,
 textarea {
-	color: var( --color-emphasized );
+	color: var( --color-base );
 	background-color: transparent;
 	border: var( --border-width-base ) solid var( --border-color-interactive );
 
@@ -85,7 +85,7 @@ button {
 }
 
 th {
-	font-weight: var( --font-weight-semi-bold );
+	font-weight: var( --font-weight-bold );
 	color: var( --color-emphasized );
 }
 
