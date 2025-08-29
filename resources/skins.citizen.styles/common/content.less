@@ -1,22 +1,21 @@
 /**
  * Miscellaneous styles that apply to body content
  */
-
 .citizen-body {
 	a.image {
 		display: inline-block;
 		overflow: hidden;
-		vertical-align: top; // get rid of that weird bottom gap from inline block
+		vertical-align: top; // remove bottom gap from inline-block
 
 		> img {
-			transition: var( --transition-hover );
-			transition-property: transform;
+			transition: none;
+			transition-property: none;
 		}
 
 		// Add affordance to replace magnify icon
-		&:hover:not( .lazy ):not( .new ) {
+		&:hover:not(.lazy):not(.new) {
 			> img {
-				transform: var( --transform-image-hover );
+				transform: none;
 			}
 		}
 	}
@@ -35,6 +34,7 @@
 	#content {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 
 	.citizen-page-header {
@@ -42,9 +42,10 @@
 
 		&-inner {
 			justify-content: center;
+			align-items: center;
 
-			@media ( min-width: @min-width-breakpoint-desktop ) {
-				border-top: var( --border-width-base ) solid var( --border-color-base );
+			@media (min-width: @min-width-breakpoint-desktop) {
+				border-top: var(--border-width-base) solid var(--border-color-base);
 			}
 		}
 	}
@@ -55,7 +56,7 @@
 	}
 
 	.citizen-body-container {
-		margin-top: var( --space-xl );
+		margin-block-start: var(--space-sm);
 	}
 }
 
@@ -63,21 +64,27 @@
  * Heading HTML changes
  * @see https://phabricator.wikimedia.org/T13555
  * TODO: Clean up heading spacing someday
- * TODO: This should go into one of the skinning files, revisit when we move to 1.43
+ * TODO: Move into skinning files when we switch to MW 1.43
  */
 .mw-heading {
 	display: flex;
 	align-items: center;
-	margin-top: var( --space-md );
+	margin-top: 0.25em;
 
-	&1,
-	&2 {
-		margin-top: 3rem;
+	&1 {
+		margin-block: var(--margin-h1-block, 1em 0.25em);
 	}
 
-	&3,
+	&2 {
+		margin-block: var(--margin-h2-block, 1em 0.25em);
+	}
+
+	&3 {
+		margin-block: var(--margin-h3-block, 0.75em 0.25em);
+	}
+
 	&4 {
-		margin-top: 2rem;
+		margin-block: var(--margin-h4-block, 0.75em 0.25em);
 	}
 
 	h1,
