@@ -13,7 +13,7 @@
   --font-family-citizen-base: var(--font-family-inter), 'Roboto', 'Roboto-fallback';
   --font-family-citizen-serif: var(--font-family-arvo), 'Roboto Serif', 'Roboto Serif-fallback';
   --font-family-citizen-monospace: var(--font-family-cousine), 'Roboto Mono', 'Roboto Mono-fallback';
-  --font-family-language-base: '';
+  --font-family-language-base: '';o
   --font-family-language-serif: '';
   --font-family-language-monospace: '';
 
@@ -47,29 +47,38 @@
   --space-xs:   calc(0.5   * var(--space-unit));
   --space-sm:   calc(0.75  * var(--space-unit));
   --space-md:   var(--space-unit);
-  --space-lg:   calc(1.25  * var(--space-unit));
-  --space-xl:   calc(1.5   * var(--space-unit));
-  --space-xxl:  calc(1.75  * var(--space-unit)); /* confirm consumers expect 1.75× */
-  --space-xxxl: calc(2     * var(--space-unit));
+  --space-lg:   calc(1.125  * var(--space-unit));
+  --space-xl:   calc(1.25   * var(--space-unit));
+  --space-xxl:  calc(1.5  * var(--space-unit));
+  --space-xxxl: calc(1.75    * var(--space-unit));
+	--space-x2: calc(2 * var(--space-unit));
 
   /* Transition */
   --transition-delay-menu: 100ms;
-  --transition-timing-function-ease:    cubic-bezier(0.44, 0.21, 0, 1);
-  --transition-timing-function-ease-in: cubic-bezier(0.75, 0, 1, 1);
-  --transition-timing-function-ease-out:cubic-bezier(0.215, 0.61, 0.355, 1);
+  --transition-timing-function-ease:     cubic-bezier(0.44, 0.21, 0, 1);
+  --transition-timing-function-ease-in:  cubic-bezier(0.75, 0, 1, 1);
+  --transition-timing-function-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+	--transition-timing-function-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+	
+	--transition-link-ease-in: cubic-bezier(0.4, 0, 1, 1);
+	--transition-link-ease-in-out:cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-link-ease-out:cubic-bezier(0, 0, 0.2, 1);
 
   /* Transform */
-  --transform-image-hover: scale(1); /* removes the hover effect */
+  --transform-image-hover: none; /* removes the hover effect */
 
   /* Borders */
-  --border-width-base: .0625rem; /* 1px */
-  --border-width-thin: var(--border-width-base);
-  --border-width-thick:   calc(var(--border-width-base) * 2);
-  --border-width-thicker: calc(var(--border-width-base) * 3);
-  --border-width-thickest:calc(var(--border-width-base) * 4);
+  --border-width-base: var(--pixel-size-xs);
+  --border-style-base: var(--line-style-solid);
+	
+  --border-width-thin:     calc(var(--border-width-base) * 1);
+  --border-width-thick:    calc(var(--border-width-base) * 2);
+  --border-width-thicker:  calc(var(--border-width-base) * 3);
+  --border-width-thickest: calc(var(--border-width-base) * 4);
 
-  --border-base:   var(--border-width-base) solid var(--border-color-base);
-  --border-subtle: var(--border-width-base) solid var(--border-color-subtle);
+  --border-base:   var(--border-width-base) var(--border-style-base) var(--border-color-base);
+  --border-subtle: var(--border-width-base) var(--border-style-base) var(--border-color-subtle);
 
   /* Border radius */
   --border-radius-base: var(--space-xxs);
