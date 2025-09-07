@@ -51,19 +51,18 @@
   --space-xl:   calc(1.25   * var(--space-unit));
   --space-xxl:  calc(1.5  * var(--space-unit));
   --space-xxxl: calc(1.75    * var(--space-unit));
-	--space-x2: calc(2 * var(--space-unit));
+  --space-x2: calc(2 * var(--space-unit));
 
   /* Transition */
   --transition-delay-menu: 100ms;
   --transition-timing-function-ease:     cubic-bezier(0.44, 0.21, 0, 1);
   --transition-timing-function-ease-in:  cubic-bezier(0.75, 0, 1, 1);
   --transition-timing-function-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
-	--transition-timing-function-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --transition-timing-function-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
-	
-	--transition-link-ease-in: cubic-bezier(0.4, 0, 1, 1);
-	--transition-link-ease-in-out:cubic-bezier(0.4, 0, 0.2, 1);
-	--transition-link-ease-out:cubic-bezier(0, 0, 0.2, 1);
+  --transition-link-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-link-ease-in-out:cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-link-ease-out:cubic-bezier(0, 0, 0.2, 1);
 
   /* Transform */
   --transform-image-hover: none; /* removes the hover effect */
@@ -82,14 +81,14 @@
 
   /* Border radius */
   --border-radius-base: var(--space-xxs);
-  --border-radius-small:    calc(var(--border-radius-base) * 1);
-  --border-radius-medium:   calc(var(--border-radius-base) * 2);
-  --border-radius-large:    calc(var(--border-radius-base) * 3);
-  --border-radius-x-large:  calc(var(--border-radius-base) * 4);
-  --border-radius-xx-large: calc(var(--border-radius-base) * 5);
-  --border-radius-xxx-large:calc(var(--border-radius-base) * 6);
-  --border-radius-xxxx-large: calc(var(--border-radius-base) * 7);
-  --border-radius-xxxxx-large:calc(var(--border-radius-base) * 8);
+  --border-radius-small:       calc(var(--border-radius-base) * 1);
+  --border-radius-medium:      calc(var(--border-radius-base) * 2);
+  --border-radius-large:       calc(var(--border-radius-base) * 3);
+  --border-radius-x-large:     calc(var(--border-radius-base) * 4);
+  --border-radius-xx-large:    calc(var(--border-radius-base) * 5);
+  --border-radius-xxx-large:   calc(var(--border-radius-base) * 6);
+  --border-radius-xxxx-large:  calc(var(--border-radius-base) * 7);
+  --border-radius-xxxxx-large: calc(var(--border-radius-base) * 8);
   --border-radius-sharp: 0;
   --border-radius-pill: 9999px;
   --border-radius-circle: 50%;
@@ -100,6 +99,9 @@
   --border-radius-md: var(--border-radius-large);
   --border-radius-xl: var(--border-radius-x-large);
   --border-radius-2xl:var(--border-radius-xx-large);
+  --border-radius-3xl:var(--border-radius-xxx-large);
+  --border-radius-4xl:var(--border-radius-xxxx-large);
+  --border-radius-5xl:var(--border-radius-xxxxx-large);
 
   /* Box shadows */
   --box-shadow-small: 0 0 0 1px var(--border-color-base);
@@ -129,9 +131,8 @@
   --font-weight-medium:   calc(var(--font-weight-normal) + 100);
   --font-weight-semi-bold:calc(var(--font-weight-normal) + 200);
   --font-weight-bold:     calc(var(--font-weight-normal) + 300);
-  --font-weight-heavy:    calc(var(--font-weight-normal) + 400);
-  /* clamp to ≤ 900 */
-  --font-weight-black:    min(900, calc(var(--font-weight-normal) + 500));
+  --font-weight-extra-bold:    calc(var(--font-weight-normal) + 400);
+  --font-weight-ulra-bold:    min(900, calc(var(--font-weight-normal) + 500));
 
   /* Overline */
   --font-family-overline: var(--font-family-base);
