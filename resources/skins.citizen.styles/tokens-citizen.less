@@ -10,9 +10,9 @@
 :root {
 	.theme-base();
 
-	/* Border */
-	--border-radius-medium: calc( var( --border-radius-base ) * 2 );
-	--border-radius-large: calc( var( --border-radius-base ) * 3 );
+
+	--border-width-base: 1px;
+	--border-radius-base: 4px;
 
 	/* Box shadow */
 	--box-shadow-border: var( --border-color-base ) 0 0 0 1px;
@@ -86,12 +86,26 @@
 	 */
 	--border-base: var( --border-width-base ) solid var( --border-color-base );
 	--border-subtle: var( --border-width-base ) solid var( --border-color-subtle );
-	--border-width-base: 1px;
-	--border-width-thick: 2px;
-	--border-radius-base: 4px;
-	--border-radius-sharp: 0;
-	--border-radius-pill: 9999px;
-	--border-radius-circle: 50%;
+
+	--border-width-thick: var(--border-width-small);
+
+  --border-width-x-small: var(--border-width-base);
+  --border-width-small:   2px;
+  --border-width-medium:  3px;
+  --border-width-large:   4px;
+  --border-width-x-large: 5px;
+
+	--border-radius-sharp:     0px;
+
+  --border-radius-small: var(--border-radius-base);
+	--border-radius-medium:    8px;
+	--border-radius-large:     12px;
+	--border-radius-x-large:   16px;
+  --border-radius-xx-large:  24px;
+  --border-radius-xxx-large: 32px;
+	--border-radius-pill:    9999px;
+	--border-radius-circle:  50%;
+
 	--box-shadow-small: 0 0 0 1px var( --border-color-base );
 	// @see https://www.joshwcomeau.com/shadow-palette
 	--box-shadow-medium: 0 0.5px 0.6px var( --box-shadow-color-alpha-base ), 0 1.6px 1.8px -0.8px var( --box-shadow-color-alpha-base ), 0 4px 4.5px -1.7px var( --box-shadow-color-alpha-base ), 0 9.8px 11px -2.5px var( --box-shadow-color-alpha-base );
